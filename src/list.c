@@ -25,12 +25,15 @@ int size(node *l){
 
 	assert(l != NULL);
 
+	//p peger på l
 	node *p = l;
 	int counter = 0;
 
-
+	//Mens p.next ikke indeholder NULL
 	while(p->next != NULL){
+		//Counter tæller op for hvergang der er et nyt element
 		counter++;
+		//p peher på et nyt element
 		p = p->next;
 	}
 
@@ -44,6 +47,7 @@ void printout(node *l) {
     post: the values of the list are printed out*/
     node *p = l->next;
     while (p!=NULL){
+	//printer nuværende data
 	printf("%d, ",p->data);
 	p = p->next;
     }
@@ -61,7 +65,9 @@ int largest(node *l){
 
 	node *p = l->next;
 
+	//mens p ikke indeholder NULL
 	while(p!=NULL){
+		//Hvis nuværende data er større end temp, vil temp være lig med dataen
 		if(p->data > temp){
 			temp = p->data;
 		}
