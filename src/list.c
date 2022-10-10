@@ -18,23 +18,34 @@ void add(node *head, int x){
   node *element = (node*) malloc(sizeof(node));
   element->next = NULL;
   element->data = x;
-  p->next = element; 
+  p->next = element;
 }
 
 int size(node *l){
-    // Excercise 3b)
-    // Add your code here... 
 
-    return -1;
+	assert(l != NULL);
+
+	node *p = l;
+	int counter = 0;
+
+
+	while(p->next != NULL){
+		counter++;
+		p = p->next;
+	}
+
+
+    return counter;
 }
 
 void printout(node *l) {
-  /*Excercise 3d) Implement your changes.. 
+  /*Excercise 3d) Implement your changes..
     pre: head points to the first, empty element. The last element's next is NULL
     post: the values of the list are printed out*/
     node *p = l->next;
     while (p!=NULL){
-      printf("%d, ",p->data);
+	printf("%d, ",p->data);
+	p = p->next;
     }
     printf("\n");
 }
@@ -43,6 +54,20 @@ int largest(node *l){
     /*Excercise 3e) Add your code below.
       pre: head points to the first, empty element. The last element's next is NULL. size(l>0)
       post: returns the largest value of the list*/
-    return -1; 
+
+	assert(l > 0);
+
+	int temp = 0;
+
+	node *p = l->next;
+
+	while(p!=NULL){
+		if(p->data > temp){
+			temp = p->data;
+		}
+		p = p->next;
+	}
+
+    return temp;
 }
 
